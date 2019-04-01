@@ -66,6 +66,7 @@ class UserOgpImageGenerator
     # Cloudinary::Uploader.upload(data_uri, auth)
 
 
+    # save image for checking image
     dist_dir = "#{Rails.root.join('tmp', 'ogp_image')}"
     Dir.mkdir(dist_dir) unless File.exists?(dist_dir)
     dist_path = "#{dist_dir}/#{user_id}-#{user_name}.png"
