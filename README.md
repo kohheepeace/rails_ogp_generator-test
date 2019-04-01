@@ -1,19 +1,14 @@
 # Rails OGP Generator Sample
 
-## Get Started
+## Your task
 
-```bash
-$ bin/setup
-$ bin/rails s
+- Clone this repo
+
+In terminal, run
+```
+rails c
+UserOgpImageGenerator.new.generate
 ```
 
-## Summary
-
-- Create/Update a user.
-- The OGP image is automatically created after user info saved.
-
-![image](https://user-images.githubusercontent.com/3489430/43838431-4d451c84-9b56-11e8-9058-b575d5876a83.png)
-
-- Able to make circled avatar
-
-│![image](https://user-images.githubusercontent.com/3489430/43838535-9d1e44e2-9b56-11e8-8826-e259eb13443d.png)
+This generates image. But it does not work well.
+So, please edit one file `app/models/user_ogp_image_generator.rb` to generate nice twitter ogp.
