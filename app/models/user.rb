@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, UserAvatarUploader
 
-  after_save :generate_ogp_image, if: :ogp_image_info_changed?
+  # after_save :generate_ogp_image, if: :ogp_image_info_changed?
 
   def ogp_image_info_changed?
     name_changed? || avatar_changed?
