@@ -90,6 +90,8 @@ class UserOgpImageGenerator
     }
     Cloudinary::Uploader.upload(dist_path, auth)
 
+    # Delete generated image in /tmp/ogp_image folder
+    FileUtils.rm_rf(Dir["#{dist_dir}/*"])
   end
 
   private
