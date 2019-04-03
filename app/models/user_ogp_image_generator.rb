@@ -16,7 +16,7 @@ class UserOgpImageGenerator
     user_job = @job
     user_bio = @bio
 
-    user_bio = user_bio.fit 50
+    user_bio = user_bio.fit 45
 
     image = Magick::ImageList.new
 
@@ -75,21 +75,21 @@ class UserOgpImageGenerator
     # data_uri = Base64.encode64(png_bytes)
     # data_uri = URI.escape(data_uri)
 
-    # Upload to cloudinary
-    # auth = {
-    #   cloud_name: "",
-    #   api_key:    "",
-    #   api_secret: ""
-    # }
-    # Cloudinary::Uploader.upload(data_uri, auth)
-
-
     # save image for checking image
     dist_dir = "#{Rails.root.join('tmp', 'ogp_image')}"
     Dir.mkdir(dist_dir) unless File.exists?(dist_dir)
     dist_path = "#{dist_dir}/#{user_id}-#{user_name}.png"
     image.write(dist_path)
     dist_path
+
+    # Upload to cloudinary
+    auth = {
+      cloud_name: ENV['cloud_name'],
+      api_key:    ENV['api_key'],
+      api_secret: ENV['api_secret']
+    }
+    Cloudinary::Uploader.upload(dist_path, auth)
+
   end
 
   private

@@ -26,3 +26,4 @@
 .idea/
 
 /public/uploads
+/config/cloudinary.yml
